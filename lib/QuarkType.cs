@@ -1,4 +1,4 @@
-namespace Quark
+namespace QuarkParser
 {
     public enum QuarkType
     {
