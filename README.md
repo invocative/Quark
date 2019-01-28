@@ -40,7 +40,7 @@ var qList = Quark.Token.Parse("[u|u|d]") // uud a quark structure of proton
 qList.First().ToString() // -> [u +(2/3)ℯ 2.01 MeV]
 
 
-qList.Last()
+qList.First()
 // ->
 {
   Mass: new Energy(2.01, Energy.MegaElectronVolt),
