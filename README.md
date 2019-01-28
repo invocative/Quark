@@ -32,6 +32,9 @@ e.ToString() // -> ["+(1/2)ℯ"]
 
 ### Quark
 
+
+Support: `u d s c b t` quarks, and anti-quark `ū d̄ s̄ c̄ b̄ t̄`
+
 Base parse:
 ```CSharp
 
