@@ -1,2 +1,4 @@
 [submodule "thridparty/eV"]
-url = https://github.com/0xF6/eV.git
+	path = thridparty/eV
+	url = https://github.com/0xF6/eV.git
+	branch = master
