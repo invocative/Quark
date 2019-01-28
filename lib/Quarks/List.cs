@@ -1,4 +1,4 @@
-﻿namespace QuarkParser.Quarks
+﻿namespace Elementary.Quarks
 {
     using eV.Measure;
 

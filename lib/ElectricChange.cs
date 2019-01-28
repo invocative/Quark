@@ -1,4 +1,4 @@
-namespace QuarkParser
+namespace Elementary.Quarks
 {
     using Sprache;
 

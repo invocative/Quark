@@ -3,9 +3,18 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>QuarkParser</RootNamespace>
+    <RootNamespace>Elementary.Quarks</RootNamespace>
     <ApplicationIcon />
     <StartupObject />
+    <AssemblyName>Elementary.Quarks</AssemblyName>
+    <Version>1.2.0</Version>
+    <Authors>Yuuki Wesp</Authors>
+    <Company>Elementary Coop.</Company>
+    <Product>Elementary Shared Libs</Product>
+    <Copyright>2019 (C) Yuuki Wesp</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Sprache" Version="2.2.1-develop-00025" />
