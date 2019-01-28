@@ -48,4 +48,12 @@ qList.First()
   Type: TopQuark,
   EChange: "+(2/3)"
 }
+
+
+// Also supported antiquark
+
+var antiquark = Quark.Token.Parse("[-u]").First()
+
+antiquark.ToString() // -> [ū +(2/3)ℯ 2.01 MeV]
+antiquark.IsAnti() // -> True
 ```
