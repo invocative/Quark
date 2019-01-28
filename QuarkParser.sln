@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuarkParser", "lib\QuarkParser.csproj", "{377217FA-F317-4CD9-832B-BFF60D94D5C3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "unit_test", "test\unit_test.csproj", "{8538A659-C64C-4E4B-8AD5-88F6D64A115C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eV.Measure", "thridparty\eV\lib\eV.Measure.csproj", "{9BFA8849-4476-4C05-9A16-014898B3E160}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8538A659-C64C-4E4B-8AD5-88F6D64A115C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8538A659-C64C-4E4B-8AD5-88F6D64A115C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8538A659-C64C-4E4B-8AD5-88F6D64A115C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFA8849-4476-4C05-9A16-014898B3E160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFA8849-4476-4C05-9A16-014898B3E160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFA8849-4476-4C05-9A16-014898B3E160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFA8849-4476-4C05-9A16-014898B3E160}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,4 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Sprache" Version="2.2.1-develop-00025" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\thridparty\eV\lib\eV.Measure.csproj" />
+  </ItemGroup>
 </Project>

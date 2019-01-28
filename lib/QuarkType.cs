@@ -2,6 +2,7 @@ namespace QuarkParser
 {
     public enum QuarkType
     {
+        Unk,
         /// <summary>
         /// D-Quark (Down-Quark)
         /// </summary>
