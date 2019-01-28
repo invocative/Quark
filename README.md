@@ -1,6 +1,17 @@
-# Elementary.Quarks
-Elementary Particle Quark parser
-This project is part of a closed project ElementarySandbox
+<!-- Logo -->
+<p align="center">
+  <a href="#">
+    <img height="128" width="128" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Proton_quark_structure.svg/401px-Proton_quark_structure.svg.png">
+  </a>
+</p>
+
+<!-- Name -->
+<h1 align="center">
+  Elementary Quark Lib 🔅
+</h1>
+
+Remark:
+  `This project is part of a closed project ElementarySandbox`
 
 
 # API
