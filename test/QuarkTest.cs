@@ -1,6 +1,6 @@
 ﻿namespace unit_test
 {
-    using QuarkParser;
+    using Elementary.Quarks;
     using Sprache;
     using Xunit;
 

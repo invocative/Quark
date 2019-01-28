@@ -1,8 +1,7 @@
 namespace unit_test
 {
-    using System;
+    using Elementary.Quarks;
     using Xunit;
-    using QuarkParser;
     public class ElectricChangeTest
     {
         [Fact]

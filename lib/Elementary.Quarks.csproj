@@ -12,7 +12,7 @@
     <Company>Elementary Coop.</Company>
     <Product>Elementary Shared Libs</Product>
     <Copyright>2019 (C) Yuuki Wesp</Copyright>
-    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/0xF6/Quark/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

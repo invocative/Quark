@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lib\QuarkParser.csproj" />
+    <ProjectReference Include="..\lib\Elementary.Quarks.csproj" />
   </ItemGroup>
 
 </Project>
