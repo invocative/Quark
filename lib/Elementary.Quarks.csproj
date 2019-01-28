@@ -7,7 +7,7 @@
     <ApplicationIcon />
     <StartupObject />
     <AssemblyName>Elementary.Quarks</AssemblyName>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <Authors>Yuuki Wesp</Authors>
     <Company>Elementary Coop.</Company>
     <Product>Elementary Shared Libs</Product>
@@ -15,6 +15,8 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/0xF6/Quark/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>latest</LangVersion>
+    <PackageReleaseNotes>Add Anti-types, and add logic to combine symbols with macron</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Sprache" Version="2.2.1-develop-00025" />

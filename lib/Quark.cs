@@ -7,22 +7,43 @@
 
     public class Quark
     {
-        protected Quark()
+        protected Quark(bool isAnti = false)
         {
             this.Mass = new Energy(0.0, Energy.ElectronVolt);
-            this.Symbol = '-';
             this.Name = "Unknown";
             this.Type = QuarkType.Unk;
-            EChange = "-(0/0)";
+            this.EChange = "-(0/0)";
+            this.Prefix = (!isAnti ? '+' : '-');
         }
+        /// <summary>
+        /// Quark Suffix
+        /// </summary>
+        protected char Prefix;
+
+
+        public bool IsAnti() => Prefix == '-';
+
         /// <summary>
         /// Quark Name
         /// </summary>
         public string Name { get; protected set; }
+        
+        protected string InternalChar { get; set; }
+        protected string InternalAntiChar { get; set; }
+
         /// <summary>
         /// Quark Symbol
         /// </summary>
-        public char Symbol { get; protected set; }
+        public string Symbol
+        {
+            get
+            {
+                if (IsAnti()) return InternalAntiChar;
+                return InternalChar;
+            }
+        }
+
+
         /// <summary>
         /// Quark Type
         /// </summary>
@@ -40,16 +61,16 @@
 
 
 
-        private static Quark QuarkBySymbol(char c)
+        private static Quark QuarkBySymbol(char c, bool isAnti)
         {
             switch (c)
             {
-                case 'd': return new DownQuark();
-                case 'u': return new UpQuark();
-                case 's': return new StrangeQuark();
-                case 'c': return new CharmQuark();
-                case 'b': return new BottomQuark();
-                case 't': return new TopQuark();
+                case 'd': return new DownQuark(isAnti);
+                case 'u': return new UpQuark(isAnti);
+                case 's': return new StrangeQuark(isAnti);
+                case 'c': return new CharmQuark(isAnti);
+                case 'b': return new BottomQuark(isAnti);
+                case 't': return new TopQuark(isAnti);
             }
             return new Quark();
         }
@@ -62,8 +83,8 @@
 
 
         private static readonly Parser<Quark> privateToken =
-            from sym in Parse.Chars("duscbt")
             from dig in Parse.Chars("+-").Optional()
-            select QuarkBySymbol(sym);
+            from sym in Parse.Chars("duscbt")
+            select QuarkBySymbol(sym, dig.GetOrDefault() == '-');
     }
 }

@@ -4,33 +4,36 @@
 
     public class TopQuark : Quark
     {
-        public TopQuark()
+        public TopQuark(bool isAnti = false) : base(isAnti)
         {
             this.Type = QuarkType.t;
             this.Name = "Top Quark";
-            this.Symbol = 't';
+            this.InternalChar = "t";
+            this.InternalAntiChar = "t\u0304";
             this.EChange = "+(2/3)";
             this.Mass = new Energy(173.1, Energy.GigaElectronVolt);
         }
     }
     public class BottomQuark : Quark
     {
-        public BottomQuark()
+        public BottomQuark(bool isAnti = false) : base(isAnti)
         {
             this.Type = QuarkType.b;
             this.Name = "Beauty Quark";
-            this.Symbol = 'b';
+            this.InternalChar = "b";
+            this.InternalAntiChar = "b\u0304";
             this.EChange = "-(1/3)";
             this.Mass = new Energy(4.67, Energy.GigaElectronVolt);
         }
     }
     public class UpQuark : Quark
     {
-        public UpQuark()
+        public UpQuark(bool isAnti = false) : base(isAnti)
         {
             this.Type = QuarkType.u;
             this.Name = "Up Quark";
-            this.Symbol = 'u';
+            this.InternalChar = "u";
+            this.InternalAntiChar = "u\u0304";
             this.EChange = "+(2/3)";
             this.Mass = new Energy(2.01, Energy.MegaElectronVolt);
         }
@@ -38,11 +41,12 @@
 
     public class DownQuark : Quark
     {
-        public DownQuark()
+        public DownQuark(bool isAnti = false) : base(isAnti)
         {
             this.Type = QuarkType.d;
             this.Name = "Down Quark";
-            this.Symbol = 'd';
+            this.InternalChar = "d";
+            this.InternalAntiChar = "d\u0304";
             this.EChange = "-(1/3)";
             this.Mass = new Energy(4.79, Energy.MegaElectronVolt);
         }
@@ -50,11 +54,12 @@
 
     public class StrangeQuark : Quark
     {
-        public StrangeQuark()
+        public StrangeQuark(bool isAnti = false) : base(isAnti)
         {
             this.Type = QuarkType.s;
             this.Name = "Strange Quark";
-            this.Symbol = 's';
+            this.InternalChar = "s";
+            this.InternalAntiChar = "s\u0304";
             this.EChange = "-(1/3)";
             this.Mass = new Energy(4.79, Energy.MegaElectronVolt);
         }
@@ -62,11 +67,12 @@
 
     public class CharmQuark : Quark
     {
-        public CharmQuark()
+        public CharmQuark(bool isAnti = false) : base(isAnti)
         {
             this.Type = QuarkType.c;
             this.Name = "Charm Quark";
-            this.Symbol = 'c';
+            this.InternalChar = "c";
+            this.InternalAntiChar = "c\u0304";
             this.EChange = "+(2/3)";
             this.Mass = new Energy(1.25, Energy.GigaElectronVolt);
         }
