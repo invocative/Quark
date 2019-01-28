@@ -1,8 +1,7 @@
-namepspace Quark
+namespace QuarkParser
 {
     using Sprache;
-    using System;
-    
+
     public class ElectricChange
     {
         public char Unit = '\u212F';
@@ -17,7 +16,7 @@ namepspace Quark
             Value = value;
         }
 
-        public static Parser<ElectricChange> Token = 
+        public static Parser<ElectricChange> Token =
             from first in Parse.Char('+').Or(Parse.Char('-'))
             from _1 in Parse.Char('(')
             from n1 in Parse.Number
@@ -28,5 +27,15 @@ namepspace Quark
 
 
         public override string ToString() => $"{(IsPositive ? "+" : "-")}({Value}){Unit}";
+
+
+        public static implicit operator string(ElectricChange e)
+        {
+            return e.ToString();
+        }
+        public static implicit operator ElectricChange(string e)
+        {
+            return Token.Parse(e);
+        }
     }
 }
