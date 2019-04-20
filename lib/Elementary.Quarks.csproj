@@ -19,7 +19,7 @@
     <PackageReleaseNotes>Add Anti-types, and add logic to combine symbols with macron</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/0xF6/Quark</PackageProjectUrl>
-    <PackageIconUrl>https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Proton_quark_structure.svg/401px-Proton_quark_structure.svg.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/0xF6/Quark/master/icon/icon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/0xF6/Quark</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>Elementary particle quark parser</Description>
