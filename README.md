@@ -10,8 +10,11 @@
   Elementary Quark Lib 🔅
 </h1>
 
-Remark:
-  `This project is part of a closed project ElementarySandbox`
+Remark:       
+  `This project is part of a closed project ElementarySandbox`    
+
+### Install   
+`dotnet add package Elementary.Quarks --version 1.4.0`
 
 
 # API
