@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -7,21 +7,32 @@
     <ApplicationIcon />
     <StartupObject />
     <AssemblyName>Elementary.Quarks</AssemblyName>
-    <Version>1.3.0</Version>
+    <Version>1.4.0</Version>
     <Authors>Yuuki Wesp</Authors>
     <Company>Elementary Coop.</Company>
     <Product>Elementary Shared Libs</Product>
     <Copyright>2019 (C) Yuuki Wesp</Copyright>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/0xF6/Quark/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>latest</LangVersion>
     <PackageReleaseNotes>Add Anti-types, and add logic to combine symbols with macron</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/0xF6/Quark</PackageProjectUrl>
+    <PackageIconUrl>https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Proton_quark_structure.svg/401px-Proton_quark_structure.svg.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/0xF6/Quark</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Elementary particle quark parser</Description>
+    <PackageTags>elementary, physics, quark, atom</PackageTags>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="eV.Measure" Version="1.3.0" />
     <PackageReference Include="Sprache" Version="2.2.1-develop-00025" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\thridparty\eV\lib\eV.Measure.csproj" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>
