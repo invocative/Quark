@@ -1,7 +1,7 @@
 <!-- Logo -->
 <p align="center">
   <a href="#">
-    <img height="128" width="128" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Proton_quark_structure.svg/401px-Proton_quark_structure.svg.png">
+    <img height="128" width="128" src="https://raw.githubusercontent.com/0xF6/Quark/master/icon/icon.png">
   </a>
 </p>
 
