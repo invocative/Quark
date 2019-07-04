@@ -9,6 +9,26 @@
 <h1 align="center">
   Elementary Quark Lib 🔅
 </h1>
+<p align="center">
+  <a href="#">
+    <img src="https://dev.azure.com/0xF6/Quark/_apis/build/status/0xF6.Quark?branchName=masterr">
+    <img src="http://img.shields.io/:license-MIT-blue.svg">
+    <img src="https://img.shields.io/github/release/0xF6/Quark.svg">
+  </a>
+  <a href="https://t.me/ivysola">
+    <img src="https://img.shields.io/badge/Ask%20Me-Anything-1f425f.svg">
+  </a>
+</p>
+<p align="center">
+  <a href="#">
+    <img src="https://forthebadge.com/images/badges/made-with-c-sharp.svg">
+    <img src="https://forthebadge.com/images/badges/designed-in-ms-paint.svg">
+    <img src="https://forthebadge.com/images/badges/ages-18.svg">
+    <img src="https://ForTheBadge.com/images/badges/winter-is-coming.svg">
+    <img src="https://forthebadge.com/images/badges/gluten-free.svg">
+  </a>
+</p>
+
 
 Remark:       
   `This project is part of a closed project ElementarySandbox`    
