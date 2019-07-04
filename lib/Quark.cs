@@ -1,5 +1,6 @@
 ﻿namespace Elementary.Quarks
 {
+    using System;
     using System.Collections.Generic;
     using eV.Measure;
     using Quarks;
@@ -61,19 +62,16 @@
 
 
 
-        private static Quark QuarkBySymbol(char c, bool isAnti)
-        {
-            switch (c)
-            {
-                case 'd': return new DownQuark(isAnti);
-                case 'u': return new UpQuark(isAnti);
-                case 's': return new StrangeQuark(isAnti);
-                case 'c': return new CharmQuark(isAnti);
-                case 'b': return new BottomQuark(isAnti);
-                case 't': return new TopQuark(isAnti);
-            }
-            return new Quark();
-        }
+        private static Quark QuarkBySymbol(char c, bool isAnti) => (c) switch {
+            'd' => new DownQuark(isAnti),
+            'u' => new UpQuark(isAnti),
+            's' => new StrangeQuark(isAnti),
+            'c' => new CharmQuark(isAnti),
+            'b' => new BottomQuark(isAnti),
+            't' => new TopQuark(isAnti),
+            _   => new Quark()
+        };
+
 
         public static readonly Parser<List<Quark>> Token =
             from b1 in Parse.Char('[')
