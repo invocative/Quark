@@ -11,9 +11,10 @@
 </h1>
 <p align="center">
   <a href="#">
-    <img src="https://dev.azure.com/0xF6/Quark/_apis/build/status/0xF6.Quark?branchName=masterr">
+    <img src="https://dev.azure.com/0xF6/Quark/_apis/build/status/0xF6.Quark?branchName=master">
     <img src="http://img.shields.io/:license-MIT-blue.svg">
     <img src="https://img.shields.io/github/release/0xF6/Quark.svg">
+    <img alt="Nuget" src="https://img.shields.io/nuget/v/Elementary.Quarks.svg?color=%23884499">
   </a>
   <a href="https://t.me/ivysola">
     <img src="https://img.shields.io/badge/Ask%20Me-Anything-1f425f.svg">
