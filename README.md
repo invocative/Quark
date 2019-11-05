@@ -38,8 +38,6 @@ Remark:
   `This project is part of a closed project ElementarySandbox`    
 
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark?ref=badge_large)
-
 ### Install   
 `dotnet add package Elementary.Quarks --version 1.4.0`
 
@@ -90,3 +88,8 @@ var antiquark = Quark.Token.Parse("[-u]").First()
 antiquark.ToString() // -> [ū +(2/3)ℯ 2.01 MeV]
 antiquark.IsAnti() // -> True
 ```
+
+
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark?ref=badge_large)
