@@ -21,6 +21,7 @@
   <a href="https://t.me/ivysola">
     <img alt="Telegram" src="https://img.shields.io/badge/Ask%20Me-Anything-1f425f.svg">
   </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark.svg?type=shield"/></a>
 </p>
 <p align="center">
   <a href="#">
@@ -35,6 +36,9 @@
 
 Remark:       
   `This project is part of a closed project ElementarySandbox`    
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark?ref=badge_large)
 
 ### Install   
 `dotnet add package Elementary.Quarks --version 1.4.0`
