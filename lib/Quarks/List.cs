@@ -12,6 +12,7 @@
             this.InternalAntiChar = "t\u0304";
             this.EChange = "+(2/3)";
             this.Mass = new Energy(173.1, Energy.GigaElectronVolt);
+            this.weakType = QuarkWeakType.Up;
         }
     }
     public class BottomQuark : Quark
@@ -24,6 +25,7 @@
             this.InternalAntiChar = "b\u0304";
             this.EChange = "-(1/3)";
             this.Mass = new Energy(4.67, Energy.GigaElectronVolt);
+            this.weakType = QuarkWeakType.Down;
         }
     }
     public class UpQuark : Quark
@@ -36,6 +38,7 @@
             this.InternalAntiChar = "u\u0304";
             this.EChange = "+(2/3)";
             this.Mass = new Energy(2.01, Energy.MegaElectronVolt);
+            this.weakType = QuarkWeakType.Up;
         }
     }
 
@@ -49,6 +52,7 @@
             this.InternalAntiChar = "d\u0304";
             this.EChange = "-(1/3)";
             this.Mass = new Energy(4.79, Energy.MegaElectronVolt);
+            this.weakType = QuarkWeakType.Down;
         }
     }
 
@@ -62,6 +66,7 @@
             this.InternalAntiChar = "s\u0304";
             this.EChange = "-(1/3)";
             this.Mass = new Energy(4.79, Energy.MegaElectronVolt);
+            this.weakType = QuarkWeakType.Down;
         }
     }
 
@@ -75,6 +80,7 @@
             this.InternalAntiChar = "c\u0304";
             this.EChange = "+(2/3)";
             this.Mass = new Energy(1.25, Energy.GigaElectronVolt);
+            this.weakType = QuarkWeakType.Up;
         }
     }
 }
