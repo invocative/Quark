@@ -7,7 +7,7 @@
     <ApplicationIcon />
     <StartupObject />
     <AssemblyName>Elementary.Quarks</AssemblyName>
-    <Version>1.4.2</Version>
+    <Version>1.5.6</Version>
     <Authors>Yuuki Wesp</Authors>
     <Company>Elementary Coop.</Company>
     <Product>Elementary Shared Libs</Product>
@@ -16,7 +16,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8</LangVersion>
-    <PackageReleaseNotes>Add Anti-types, and add logic to combine symbols with macron</PackageReleaseNotes>
+    <PackageReleaseNotes>Add support calculation flavor strengths and correlation index</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/0xF6/Quark</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/0xF6/Quark/master/icon/icon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/0xF6/Quark</RepositoryUrl>
