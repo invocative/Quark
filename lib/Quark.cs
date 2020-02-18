@@ -20,7 +20,6 @@
                 new Lazy<double>(() => 
                     (this.ClearMass.ElectronVolts * Constants.SpeedOfLightSquared) / Constants.ElectronMassPlank);
         }
-
         /// <summary>
         /// Quark Mass (pure, eV)
         /// </summary>
@@ -150,5 +149,11 @@
         private readonly Lazy<double> _rawMass;
 
         #endregion
+
+        public static implicit operator UnsafeQuark(Quark q) 
+            => new UnsafeQuark(q.Type, q.IsAnti(), q.Mass, q.weakType);
+
+        public static implicit operator Quark(UnsafeQuark q)
+            => QuarkBySymbol($"{q.Type}"[0], q.IsAnti);
     }
 }
