@@ -3,21 +3,32 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using eV.Measure;
-    using Quarks;
     using Sprache;
+    using UnitsNet;
+    using UnitsNet.Units;
     using static QuarkType;
 
     public class Quark
     {
         protected Quark(bool isAnti = false)
         {
-            this.Mass = new Energy(0.0, Energy.ElectronVolt);
             this.Name = "Unknown";
             this.Type = Unk;
             this.EChange = "-(0/0)";
             this.Prefix = (!isAnti ? '+' : '-');
+            this._rawMass = 
+                new Lazy<double>(() => 
+                    (this.ClearMass.ElectronVolts * Constants.SpeedOfLightSquared) / Constants.ElectronMassPlank);
         }
+
+        /// <summary>
+        /// Quark Mass (pure, eV)
+        /// </summary>
+        public Energy ClearMass { get; protected set; }
+        /// <summary>
+        /// Quark Mass (kg) = (eV * c^2) / 1.6*10^-16
+        /// </summary>
+        public Mass Mass => new Mass(_rawMass.Value, MassUnit.Kilogram);
         /// <summary>
         /// Quark Suffix
         /// </summary>
@@ -58,11 +69,6 @@
         /// </summary>
         public ElectricChange EChange { get; protected set; }
         /// <summary>
-        /// Quark Mass
-        /// </summary>
-        public Energy Mass { get; protected set; }
-
-        /// <summary>
         /// While the process of flavor transformation is the same for all quarks,
         /// each quark has a preference to transform into the quark of its own generation.
         /// </summary>
@@ -96,7 +102,7 @@
         }
 
 
-        public override string ToString() => $"{Symbol} {EChange} {Mass[Energy.MegaElectronVolt]}";
+        public override string ToString() => $"{Symbol} {EChange} {Mass}";
 
 
 
@@ -138,5 +144,11 @@
 
             return result ?? 0.0f;
         }
+
+        #region Private fields
+
+        private readonly Lazy<double> _rawMass;
+
+        #endregion
     }
 }
