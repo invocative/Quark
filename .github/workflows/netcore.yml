@@ -26,5 +26,5 @@ jobs:
       - name: Push generated package to GitHub registry
         run: nuget push .\**\*.nupkg -Source "GPR" -SkipDuplicate
       - name: Push generated package to NuGet registry
-        run: nuget push .\src\**\*.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json -SkipDuplicate
+        run: nuget push .\**\*.nupkg -ApiKey ${{ secrets.NUGET_KEY }} -Source https://api.nuget.org/v3/index.json -SkipDuplicate
         continue-on-error: true
