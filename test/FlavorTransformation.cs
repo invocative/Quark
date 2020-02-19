@@ -1,6 +1,6 @@
 ﻿namespace unit_test
 {
-    using Elementary.Quarks;
+    using Elementary.Primitives;
     using Sprache;
     using Xunit;
 
@@ -9,8 +9,8 @@
         [Fact]
         public void NotCompatibleTest()
         {
-            var first = new TopQuark();
-            var invalid = new CharmQuark();
+            var first = Quark.Top;
+            var invalid = Quark.Charm;
 
             Assert.Equal(0.0f, first.GetFlavorTransformationIndexAt(invalid));
             Assert.Equal(0.0f, first.GetStrengthsСorrelationAt(invalid));
@@ -18,8 +18,8 @@
         [Fact]
         public void CompatibleTest()
         {
-            var first = new UpQuark();
-            var last = new DownQuark();
+            var first = Quark.Up;
+            var last = Quark.Down;
             const float Vud = 0.974f;
 
             Assert.Equal(Vud, first.GetFlavorTransformationIndexAt(last));

@@ -1,7 +1,7 @@
 ﻿namespace unit_test
 {
     using System.Linq;
-    using Elementary.Quarks;
+    using Elementary.Primitives;
     using Sprache;
     using Xunit;
 
@@ -12,10 +12,10 @@
         {
             var list = Quark.Token.Parse("[u|u|-d]");
             Assert.Equal(3, list.Count);
-            Assert.Equal("u +(2/3)\u212F 2.01 MeV", list.First().ToString());
-            Assert.Equal("d̄ -(1/3)\u212F 4.79 MeV", list.Last().ToString());
+            Assert.Equal("u +(2/3)ℯ 2.3 MeV/c²", list.First().ToString());
+            Assert.Equal("d̄ +(1/3)ℯ 4.8 MeV/c²", list.Last().ToString());
             var list2 = Quark.Token.Parse("[-u]");
-            Assert.Equal("ū +(2/3)ℯ 2.01 MeV", list2.First().ToString());
+            Assert.Equal("ū -(2/3)ℯ 2.3 MeV/c²", list2.First().ToString());
 
         }
     }
