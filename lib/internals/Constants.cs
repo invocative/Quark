@@ -1,4 +1,4 @@
-﻿namespace Elementary.Quarks
+﻿namespace Elementary.Primitives.@internal
 {
     internal static class Constants
     {
