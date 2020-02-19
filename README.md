@@ -7,7 +7,7 @@
 
 <!-- Name -->
 <h1 align="center">
-  Elementary Quark Lib 🔅
+  ✨ Elementary Quark library ✨
 </h1>
 <p align="center">
   <a href="#">
