@@ -97,10 +97,14 @@ qList.First().ToString() // -> [u +(2/3)ℯ 2.3 MeV/c²]
 qList.First()
 // ->
 {
-  Mass: { Value: 2.3, Unit: 'MegaElectronVolt'  }
+  Mass: { "173.21 GeV" }
   Symbol: 'u',
   Type: TopQuark,
-  EChange: "+(2/3)"
+  ElectricCharge: "+(2/3)ℯ",
+  Spin: "(1/2)ħ",
+  Mass: { "9.74e+46 kg" },
+  WeakType: Up,
+  IsAnti: false
 }
 
 
@@ -109,10 +113,32 @@ qList.First()
 var antiquark = Quark.Token.Parse("[-u]").First()
 
 antiquark.ToString() // -> [ū -(2/3)ℯ 2.3 MeV/c²]
-antiquark.IsAnti() // -> True
+
+
 ```
 
 
+### Flavor Index and Strenght Correlation   
 
+While the process of flavor transformation is the same for all quarks,
+each quark has a preference to transform into the quark of its own generation.
+
+
+##### GetFlavorTransformationIndexAt    
+return approximate magnitudes   
+
+Use:  
+```csharp
+Quark.Up.GetFlavorTransformationIndexAt(Quark.Down) // -> 0.974
+```
+
+##### GetStrengthsCorrelationAt   
+
+return approximate magnitudes correlation   
+
+Use:  
+```csharp
+Quark.Up.GetStrengthsCorrelationAt(Quark.Down) // -> 1.0
+```
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FElementaryStudio%2FQuark?ref=badge_large)
