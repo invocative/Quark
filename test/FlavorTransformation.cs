@@ -13,7 +13,7 @@
             var invalid = Quark.Charm;
 
             Assert.Equal(0.0f, first.GetFlavorTransformationIndexAt(invalid));
-            Assert.Equal(0.0f, first.GetStrengthsСorrelationAt(invalid));
+            Assert.Equal(0.0f, first.GetStrengthsCorrelationAt(invalid));
         }
         [Fact]
         public void CompatibleTest()
@@ -23,7 +23,7 @@
             const float Vud = 0.974f;
 
             Assert.Equal(Vud, first.GetFlavorTransformationIndexAt(last));
-            Assert.Equal(1.0f, first.GetStrengthsСorrelationAt(last));
+            Assert.Equal(1.0f, first.GetStrengthsCorrelationAt(last));
         }
         [Theory]
         [InlineData("u", "d", 0.974f)][InlineData("u", "s", 0.225f)][InlineData("u", "b", 0.003f)]
