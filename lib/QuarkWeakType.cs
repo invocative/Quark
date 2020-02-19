@@ -1,4 +1,4 @@
-namespace Elementary.Quarks
+namespace Elementary.Primitives
 {
     public enum QuarkWeakType
     {
