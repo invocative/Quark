@@ -94,14 +94,14 @@
         /// <returns>
         /// approximate magnitudes correlation
         /// </returns>
-        public float GetStrengthsСorrelationAt(Quark quark)
+        public float GetStrengthsCorrelationAt(Quark quark)
         {
-            ((QuarkType, QuarkType), float?)[,] сorrelation = {
+            ((QuarkType, QuarkType), float?)[,] correlation = {
                 { ((u, d), 1.00f), ((u, s), 0.50f),  ((u, b), 0.25f)  },
                 { ((c, d), 0.50f), ((c, s), 1.00f),  ((c, b), 0.25f)  },
                 { ((t, d), 0.25f), ((t, s), 0.25f),  ((t, b), 1.00f)  },
             };
-            return GetDecayDataByPair(quark, this, сorrelation);
+            return GetDecayDataByPair(quark, this, correlation);
         }
 
         #region private functions
