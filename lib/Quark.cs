@@ -1,72 +1,76 @@
-﻿namespace Elementary.Quarks
+﻿namespace Elementary.Primitives
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using @internal;
     using Sprache;
     using UnitsNet;
     using UnitsNet.Units;
+    using static @internal.Constants;
     using static QuarkType;
 
-    public class Quark
+    [Serializable]
+    public partial struct Quark : IComparable, IComparable<Quark>, IEquatable<Quark>
     {
-        protected Quark(bool isAnti = false)
+        internal const char MinusSuffix = '\u0304';
+
+        private readonly QuarkType _type;
+        private readonly ElectricCharge _electricCharge;
+        private readonly Spin _spin;
+        private readonly Energy _entryMass;
+        private readonly Mass _naturalMass;
+        private readonly QuarkWeakType _weakType;
+        private bool _isAntiQuark;
+
+        private Quark(QuarkType type, ElectricCharge ec, Spin spin, Energy e, QuarkWeakType weakType, bool isAnti)
         {
-            this.Name = "Unknown";
-            this.Type = Unk;
-            this.EChange = "-(0/0)";
-            this.Prefix = (!isAnti ? '+' : '-');
-            this._rawMass = 
-                new Lazy<double>(() => 
-                    (this.ClearMass.ElectronVolts * Constants.SpeedOfLightSquared) / Constants.ElectronMassPlank);
-        }
-        /// <summary>
-        /// Quark Mass (pure, eV)
-        /// </summary>
-        public Energy ClearMass { get; protected set; }
-        /// <summary>
-        /// Quark Mass (kg) = (eV * c^2) / 1.6*10^-16
-        /// </summary>
-        public Mass Mass => new Mass(_rawMass.Value, MassUnit.Kilogram);
-        /// <summary>
-        /// Quark Suffix
-        /// </summary>
-        protected char Prefix;
-
-
-        public bool IsAnti() => Prefix == '-';
-
-        /// <summary>
-        /// Quark Name
-        /// </summary>
-        public string Name { get; protected set; }
-        
-        protected string InternalChar { get; set; }
-        protected string InternalAntiChar { get; set; }
-
-        protected QuarkWeakType weakType { get; set; }
-
-        /// <summary>
-        /// Quark Symbol
-        /// </summary>
-        public string Symbol
-        {
-            get
-            {
-                if (IsAnti()) return InternalAntiChar;
-                return InternalChar;
-            }
+            this._type = type;
+            this._electricCharge = ec;
+            this._spin = spin;
+            this._entryMass = e;
+            this._weakType = weakType;
+            this._isAntiQuark = isAnti;
+            this._naturalMass = new Mass((e.ElectronVolts * SpeedOfLightSquared) / ElectronMassPlank,
+                MassUnit.Kilogram);
         }
 
+        public string Name => StringLiteralMap.GetNameByType(_type);
 
         /// <summary>
         /// Quark Type
         /// </summary>
-        public QuarkType Type { get; protected set; }
+        public QuarkType Type => _type;
         /// <summary>
-        /// Electric Change
+        /// Quark weak type
         /// </summary>
-        public ElectricChange EChange { get; protected set; }
+        public QuarkWeakType WeakType => _weakType;
+        /// <summary>
+        /// Quark Electric Charge
+        /// </summary>
+        public ElectricCharge ElectricCharge => _electricCharge;
+        /// <summary>
+        /// Quark Spin
+        /// </summary>
+        public Spin Spin => _spin;
+        /// <summary>
+        /// Quark State
+        /// </summary>
+        public bool IsAnti => _isAntiQuark;
+        /// <summary>
+        /// Quark Mass (pure, eV)
+        /// </summary>
+        public Energy EntryMass => _entryMass;
+        /// <summary>
+        /// Quark Mass (kg) = (eV * c^2) / 1.6*10^-16
+        /// </summary>
+        public Mass Mass => _naturalMass;
+        /// <summary>
+        /// Quark Symbol
+        /// </summary>
+        public string Symbol 
+            => IsAnti ? $"{this._type}{MinusSuffix}" : $"{this._type}";
+
         /// <summary>
         /// While the process of flavor transformation is the same for all quarks,
         /// each quark has a preference to transform into the quark of its own generation.
@@ -100,20 +104,23 @@
             return GetDecayDataByPair(quark, this, сorrelation);
         }
 
+        #region private functions
 
-        public override string ToString() => $"{Symbol} {EChange} {Mass}";
+        internal static float GetDecayDataByPair(Quark f1, Quark f2, ((QuarkType, QuarkType) pair, float? index)[,] data)
+        {
+            static IEnumerable<T> Flatten<T>(T[,] matrix) {
+                foreach (var item in matrix) yield return item;
+            }
 
+            float? select(Func<((QuarkType, QuarkType) pair, float? index), bool> selector) =>
+                Flatten(data).FirstOrDefault(selector).index;
 
+            var result =
+                select(z => z.pair == (f1._type, f2._type)) ??
+                select(z => z.pair == (f2._type, f1._type));
 
-        private static Quark QuarkBySymbol(char c, bool isAnti) => (c) switch {
-            'd' => new DownQuark(isAnti),
-            'u' => new UpQuark(isAnti),
-            's' => new StrangeQuark(isAnti),
-            'c' => new CharmQuark(isAnti),
-            'b' => new BottomQuark(isAnti),
-            't' => new TopQuark(isAnti),
-            _   => new Quark()
-        };
+            return result ?? 0.0f;
+        }
 
 
         public static readonly Parser<List<Quark>> Token =
@@ -126,34 +133,74 @@
         internal static readonly Parser<Quark> privateToken =
             from dig in Parse.Chars("+-").Optional()
             from sym in Parse.Chars("duscbt")
-            select QuarkBySymbol(sym, dig.GetOrDefault() == '-');
+            select BySymbol(sym, dig.GetOrDefault() == '-');
 
-        internal static float GetDecayDataByPair(Quark f1, Quark f2, ((QuarkType, QuarkType) pair, float? index)[,] data)
+
+
+        #region Equality members
+
+        /// <inheritdoc />
+        public override bool Equals(object obj) 
+            => obj is Quark other && Equals(other);
+
+        /// <inheritdoc />
+        public override int GetHashCode()
         {
-            static IEnumerable<T> Flatten<T>(T[,] matrix) {
-                foreach (var item in matrix) yield return item;
+            unchecked
+            {
+                var hashCode = (int)_type;
+                hashCode = (hashCode * 397) ^ _electricCharge.GetHashCode();
+                hashCode = (hashCode * 397) ^ _spin.GetHashCode();
+                hashCode = (hashCode * 397) ^ _entryMass.GetHashCode();
+                hashCode = (hashCode * 397) ^ _naturalMass.GetHashCode();
+                hashCode = (hashCode * 397) ^ (int)_weakType;
+                return hashCode;
             }
-
-            float? select(Func<((QuarkType, QuarkType) pair, float? index), bool> selector) =>
-                Flatten(data).FirstOrDefault(selector).index;
-
-            var result =
-                select(z => z.pair == (f1.Type, f2.Type)) ??
-                select(z => z.pair == (f2.Type, f1.Type));
-
-            return result ?? 0.0f;
         }
 
-        #region Private fields
+        /// <inheritdoc />
+        public int CompareTo(Quark other)
+        {
+            if (other._type > this._type)
+                return 1;
+            if (other._type < this._type)
+                return -1;
+            return 0;
+        }
 
-        private readonly Lazy<double> _rawMass;
+        /// <inheritdoc />
+        public bool Equals(Quark other)
+        {
+            if (other == default)
+                return false;
+            if (this == default)
+                return false;
+            return this == other;
+        }
+        /// <inheritdoc />
+        public int CompareTo(object other)
+        {
+            if (other is Quark q)
+                return CompareTo(q);
+            return 0;
+        }
 
         #endregion
 
-        public static implicit operator UnsafeQuark(Quark q) 
-            => new UnsafeQuark(q.Type, q.IsAnti(), q.Mass, q.weakType);
 
-        public static implicit operator Quark(UnsafeQuark q)
-            => QuarkBySymbol($"{q.Type}"[0], q.IsAnti);
+        public override string ToString() => $"{(IsAnti ? $"{_type}{MinusSuffix}" : $"{_type}")} {_electricCharge} {_entryMass}/c\u00B2";
+
+
+        public static bool operator ==(Quark q1, Quark q2)
+        {
+            // handle 'quark == default'
+            if (q1.Type == Unk || q2.Type == Unk)
+                return false;
+            return (q1.Type == q2.Type) && (q1.IsAnti == q2.IsAnti);
+        }
+
+        public static bool operator !=(Quark q1, Quark q2) => !(q1 == q2);
+
+        #endregion
     }
 }

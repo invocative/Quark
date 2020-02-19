@@ -1,87 +1,123 @@
-﻿namespace Elementary.Quarks
+﻿namespace Elementary.Primitives
 {
     using UnitsNet;
     using UnitsNet.Units;
+    using static QuarkType;
+    public partial struct Quark
+    {
+        public static readonly Quark Up =
+            new Quark(u,
+                "+(2/3)",
+                "(1/2)",
+                new Energy(2.3, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Up,
+                false);
+        public static readonly Quark AntiUp =
+            new Quark(u,
+                "-(2/3)",
+                "(1/2)",
+                new Energy(2.3, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Up,
+                true);
+        public static readonly Quark Down =
+            new Quark(d,
+                "-(1/3)",
+                "(1/2)",
+                new Energy(4.8, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Down,
+                false);
+        public static readonly Quark AntiDown =
+            new Quark(d,
+                "+(1/3)",
+                "(1/2)",
+                new Energy(4.8, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Down,
+                true);
+        public static readonly Quark Strange =
+            new Quark(s,
+                "-(1/3)",
+                "(1/2)",
+                new Energy(95, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Down,
+                false);
+        public static readonly Quark AntiStrange =
+            new Quark(s,
+                "+(1/3)",
+                "(1/2)",
+                new Energy(95, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Down,
+                true);
 
-    public class TopQuark : Quark
-    {
-        public TopQuark(bool isAnti = false) : base(isAnti)
-        {
-            Type = QuarkType.t;
-            Name = "Top Quark";
-            InternalChar = "t";
-            InternalAntiChar = "t\u0304";
-            EChange = "+(2/3)";
-            ClearMass = new Energy(9.74e+46, EnergyUnit.ElectronVolt);
-            weakType = QuarkWeakType.Up;
-        }
-    }
-    public class BottomQuark : Quark
-    {
-        public BottomQuark(bool isAnti = false) : base(isAnti)
-        {
-            Type = QuarkType.b;
-            Name = "Beauty Quark";
-            InternalChar = "b";
-            InternalAntiChar = "b\u0304";
-            EChange = "-(1/3)";
-            ClearMass = new Energy(2.63e+45, EnergyUnit.ElectronVolt);
-            weakType = QuarkWeakType.Down;
-        }
-    }
-    public class UpQuark : Quark
-    {
-        public UpQuark(bool isAnti = false) : base(isAnti)
-        {
-            Type = QuarkType.u;
-            Name = "Up Quark";
-            InternalChar = "u";
-            InternalAntiChar = "u\u0304";
-            EChange = "+(2/3)";
-            ClearMass = new Energy(1.13e+42, EnergyUnit.ElectronVolt);
-            weakType = QuarkWeakType.Up;
-        }
-    }
+        public static readonly Quark Charm =
+            new Quark(c,
+                "+(2/3)",
+                "(1/2)",
+                new Energy(1275, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Up,
+                false);
+        public static readonly Quark AntiCharm =
+            new Quark(c,
+                "-(2/3)",
+                "(1/2)",
+                new Energy(1275, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Up,
+                true);
 
-    public class DownQuark : Quark
-    {
-        public DownQuark(bool isAnti = false) : base(isAnti)
-        {
-            Type = QuarkType.d;
-            Name = "Down Quark";
-            InternalChar = "d";
-            InternalAntiChar = "d\u0304";
-            EChange = "-(1/3)";
-            ClearMass = new Energy(2.69e+42, EnergyUnit.ElectronVolt);
-            weakType = QuarkWeakType.Down;
-        }
-    }
+        public static readonly Quark Bottom =
+            new Quark(b,
+                "-(1/3)",
+                "(1/2)",
+                new Energy(4180, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Down,
+                false);
+        public static readonly Quark AntiBottom =
+            new Quark(b,
+                "+(1/3)",
+                "(1/2)",
+                new Energy(4180, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Down,
+                true);
 
-    public class StrangeQuark : Quark
-    {
-        public StrangeQuark(bool isAnti = false) : base(isAnti)
-        {
-            Type = QuarkType.s;
-            Name = "Strange Quark";
-            InternalChar = "s";
-            InternalAntiChar = "s\u0304";
-            EChange = "-(1/3)";
-            ClearMass = new Energy(2.69e+42, EnergyUnit.ElectronVolt);
-            weakType = QuarkWeakType.Down;
-        }
-    }
+        public static readonly Quark Top =
+            new Quark(t,
+                "+(2/3)",
+                "(1/2)",
+                new Energy(173210, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Up,
+                false);
+        public static readonly Quark AntiTop =
+            new Quark(t,
+                "-(2/3)",
+                "(1/2)",
+                new Energy(173210, EnergyUnit.MegaelectronVolt),
+                QuarkWeakType.Up,
+                true);
 
-    public class CharmQuark : Quark
-    {
-        public CharmQuark(bool isAnti = false) : base(isAnti)
+
+        public static Quark BySymbol(char ch, bool isAnti = false)
         {
-            Type = QuarkType.c;
-            Name = "Charm Quark";
-            InternalChar = "c";
-            InternalAntiChar = "c\u0304";
-            EChange = "+(2/3)";
-            ClearMass = new Energy(7.17e+44, EnergyUnit.ElectronVolt);
-            weakType = QuarkWeakType.Up;
+            return (ch, isAnti) switch
+            {
+                ('t', false) => Top,
+                ('t', true) => AntiTop,
+
+                ('b', false) => Bottom,
+                ('b', true) => AntiBottom,
+
+                ('c', false) => Charm,
+                ('c', true) => AntiCharm,
+
+                ('s', false) => Strange,
+                ('s', true) => AntiStrange,
+
+                ('d', false) => Down,
+                ('d', true) => AntiDown,
+
+                ('u', false) => Up,
+                ('u', true) => AntiUp,
+
+                _ => default
+            };
         }
     }
 }
