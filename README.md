@@ -45,6 +45,14 @@ Remark:
 
 # API
 
+Remark: 
+```asm
+- Quark is a implement IComparable, IComparable<Quark> and IEquatable<Quark> interface;
+- Quark is a native marshaling compatible;
+- Quark is a gota go fast structure;
+```
+
+
 ### ElectricChange
 
 Base parse:
@@ -53,10 +61,25 @@ var e = ElectricChange.Token.Parse("+(1/2)")
 // has return new object
 {
   IsPositive: true,
-  Value: "1/2"
+  Numerator: 1,
+  Denominator: 2
 }
 
 e.ToString() // -> ["+(1/2)ℯ"]
+```
+
+### Spin
+
+Base parse:
+```CSharp
+var e = Spin.Token.Parse("(1/2)") 
+// has return new object
+{
+  Numerator: 1,
+  Denominator: 2
+}
+
+e.ToString() // -> ["(1/2)ħ"]
 ```
 
 ### Quark
@@ -69,13 +92,13 @@ Base parse:
 
 var qList = Quark.Token.Parse("[u|u|d]") // uud a quark structure of proton
 
-qList.First().ToString() // -> [u +(2/3)ℯ 2.01 MeV]
+qList.First().ToString() // -> [u +(2/3)ℯ 2.3 MeV/c²]
 
 
 qList.First()
 // ->
 {
-  Mass: new Energy(2.01, Energy.MegaElectronVolt),
+  Mass: { Value: 2.3, Unit: 'MegaElectronVolt'  }
   Symbol: 'u',
   Type: TopQuark,
   EChange: "+(2/3)"
@@ -86,7 +109,7 @@ qList.First()
 
 var antiquark = Quark.Token.Parse("[-u]").First()
 
-antiquark.ToString() // -> [ū +(2/3)ℯ 2.01 MeV]
+antiquark.ToString() // -> [ū -(2/3)ℯ 2.3 MeV/c²]
 antiquark.IsAnti() // -> True
 ```
 
