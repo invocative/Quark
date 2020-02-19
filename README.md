@@ -39,7 +39,7 @@ Remark:
 
 
 ### Install   
-`dotnet add package Elementary.Quarks --version 1.4.0`
+`dotnet add package Elementary.Quarks --version 2.0.6`
 
 
 # API
