@@ -11,7 +11,6 @@
 </h1>
 <p align="center">
   <a href="#">
-    <img alt="Azure pipelines" src="https://dev.azure.com/0xF6/Quark/_apis/build/status/0xF6.Quark?branchName=master">
     <img alr="MIT License" src="http://img.shields.io/:license-MIT-blue.svg">
     <img alt="Quark release" src="https://img.shields.io/github/release/0xF6/Quark.svg">
     <img alt="Quark Status build" src="https://github.com/ElementaryStudio/Quark/workflows/.NET%20Core%20CI/badge.svg">
