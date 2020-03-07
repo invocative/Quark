@@ -7,7 +7,7 @@
     using Sprache;
     using UnitsNet;
     using UnitsNet.Units;
-    using static @internal.Constants;
+    using static Elementary.@internal.Constants;
     using static QuarkType;
 
     [Serializable]

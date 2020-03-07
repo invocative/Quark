@@ -1,13 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Elementary.Quarks</RootNamespace>
     <ApplicationIcon />
     <StartupObject />
     <AssemblyName>Elementary.Quarks</AssemblyName>
-    <Version>2.0.6</Version>
+    <Version>2.0.7</Version>
     <Authors>Yuuki Wesp</Authors>
     <Company>Elementary Coop.</Company>
     <Product>Elementary Shared Libs</Product>
@@ -25,13 +26,18 @@
     <Description>Elementary particle quark parser</Description>
     <PackageTags>elementary, physics, quark, atom</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>2.0.6.0</AssemblyVersion>
-    <FileVersion>2.0.6.0</FileVersion>
+    <AssemblyVersion>2.0.7.0</AssemblyVersion>
+    <FileVersion>2.0.7.0</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration) == 'Debug'">
+    <BumpPatch>true</BumpPatch>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Sprache" Version="2.3.0-develop-00031" />
-    <PackageReference Include="System.Memory" Version="4.5.3" />
-    <PackageReference Include="UnitsNet" Version="4.46.0" />
+    <PackageReference Include="Elementary.Core" Version="0.2.6" />
+    <PackageReference Include="MSBump" Version="2.3.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
