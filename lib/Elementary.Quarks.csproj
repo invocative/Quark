@@ -8,7 +8,7 @@
     <ApplicationIcon />
     <StartupObject />
     <AssemblyName>Elementary.Quarks</AssemblyName>
-    <Version>2.0.7</Version>
+    <Version>2.0.8</Version>
     <Authors>Yuuki Wesp</Authors>
     <Company>Elementary Coop.</Company>
     <Product>Elementary Shared Libs</Product>
@@ -26,8 +26,8 @@
     <Description>Elementary particle quark parser</Description>
     <PackageTags>elementary, physics, quark, atom</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>2.0.7.0</AssemblyVersion>
-    <FileVersion>2.0.7.0</FileVersion>
+    <AssemblyVersion>2.0.8.0</AssemblyVersion>
+    <FileVersion>2.0.8.0</FileVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration) == 'Debug'">
