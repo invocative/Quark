@@ -8,7 +8,7 @@
     <ApplicationIcon />
     <StartupObject />
     <AssemblyName>Elementary.Quarks</AssemblyName>
-    <Version>2.0.8</Version>
+    <Version>2.0.9</Version>
     <Authors>Yuuki Wesp</Authors>
     <Company>Elementary Coop.</Company>
     <Product>Elementary Shared Libs</Product>
@@ -34,8 +34,8 @@
     <BumpPatch>true</BumpPatch>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Elementary.Core" Version="0.2.13" />
-    <PackageReference Include="MSBump" Version="2.3.2">
+    <PackageReference Include="Elementary.Core" Version="0.2.16" />
+    <PackageReference Include="Ivy.Versioning" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
