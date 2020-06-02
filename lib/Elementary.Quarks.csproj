@@ -35,9 +35,14 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Elementary.Core" Version="0.2.17" />
-    <PackageReference Include="Ivy.Versioning" Version="3.1.0.1">
+  </ItemGroup>
+    <ItemGroup Condition="$(Configuration) == 'Debug'">
+    <PackageReference Include="Ivy.Versioning" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+  <PropertyGroup Condition="$(Configuration) == 'Debug'">
+    <BumpPatch>true</BumpPatch>
+  </PropertyGroup>
 </Project>
