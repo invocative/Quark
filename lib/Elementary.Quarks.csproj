@@ -31,7 +31,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Elementary.Core" Version="0.2.17" />
+    <PackageReference Include="Elementary.Core" Version="0.2.18" />
   </ItemGroup>
     <ItemGroup Condition="$(Configuration) == 'Debug'">
     <PackageReference Include="Ivy.Versioning" Version="3.1.0">
