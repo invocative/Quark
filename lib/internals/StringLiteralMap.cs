@@ -9,7 +9,7 @@
         {
             names = new Dictionary<QuarkType, string>
             {
-                {QuarkType.c, "Charm Quark"}, 
+                {QuarkType.c, "Charm Quark"},
                 {QuarkType.s, "Strange Quark"},
                 {QuarkType.d, "Down Quark"},
                 {QuarkType.u, "Up Quark"},

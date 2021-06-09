@@ -68,7 +68,7 @@
         /// <summary>
         /// Quark Symbol
         /// </summary>
-        public string Symbol 
+        public string Symbol
             => IsAnti ? $"{this._type}{MinusSuffix}" : $"{this._type}";
 
         /// <summary>
@@ -108,7 +108,8 @@
 
         internal static float GetDecayDataByPair(Quark f1, Quark f2, ((QuarkType, QuarkType) pair, float? index)[,] data)
         {
-            static IEnumerable<T> Flatten<T>(T[,] matrix) {
+            static IEnumerable<T> Flatten<T>(T[,] matrix)
+            {
                 foreach (var item in matrix) yield return item;
             }
 
@@ -140,7 +141,7 @@
         #region Equality members
 
         /// <inheritdoc />
-        public override bool Equals(object obj) 
+        public override bool Equals(object obj)
             => obj is Quark other && Equals(other);
 
         /// <inheritdoc />
